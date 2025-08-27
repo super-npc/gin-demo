@@ -1,0 +1,10 @@
+go 1.25
+
+use (
+	./base
+	./framework
+	./my-test
+	./orm
+	./ws
+	./echo
+)
