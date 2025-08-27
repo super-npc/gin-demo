@@ -14,5 +14,10 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
+	e.GET("/obj", a)
 	e.Logger.Fatal(e.Start(":1323"))
+}
+
+func a(c echo.Context) error {
+	return c.String(http.StatusOK, "")
 }

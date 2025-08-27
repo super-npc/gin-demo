@@ -3,12 +3,20 @@ package ws
 import (
 	"fmt"
 	"log"
+	"net/http"
+	"net/url"
+	"time"
 
 	"github.com/gorilla/websocket"
 )
 
 func MyWsConn() {
-	conn, _, err := websocket.DefaultDialer.Dial("ws://localhost:8080/ws", nil)
+	proxyURL, _ := url.Parse("http://127.0.0.1:7890")
+	dialer := websocket.Dialer{
+		Proxy:            http.ProxyURL(proxyURL), // 设置 HTTP 代理
+		HandshakeTimeout: 10 * time.Second,
+	}
+	conn, _, err := dialer.Dial("ws://localhost:8080/ws", nil)
 	if err != nil {
 		log.Fatal("dial error:", err)
 	}
