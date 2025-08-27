@@ -1,14 +1,18 @@
 package my_test
 
 import (
-	"echo/obj"
 	one_test "my-test/one-test"
 	"testing"
 	"time"
+	"ws"
 )
 
+func Test_ws(t *testing.T) {
+	ws.TestWsMap()
+}
+
 func Test_myObj(t *testing.T) {
-	obj.TestObjData()
+
 }
 
 func Test_AAA(t *testing.T) {
