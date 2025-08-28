@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-var wsTable = tool.Table[string, string, MyWsCnf]{}
+var wsTable = tool.NewTable[string, string, *MyWsCnf]()
 
 func TestWsMap() {
 	var cm = "spot"
@@ -22,9 +22,9 @@ func initWs(instType string, symbols []Symbol) *MyWsCnf {
 		// 初始化客户端
 		instant := NewInstant("wss://ws.bitget.com/v2/ws/public", obj.UM, symbols)
 		instant.Proxy = Proxy{Enable: true, Url: "http://127.0.0.1:7890"}
-		v = instant
+		v = &instant
 		v.Start()
-		//wsTable.Put(instType, instId, v)
+		wsTable.Put(instType, "", v)
 	}
-	return &v
+	return v
 }
