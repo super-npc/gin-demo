@@ -5,7 +5,17 @@ import (
 	"testing"
 	"time"
 	"ws"
+
+	"github.com/super-npc/bronya-go/commons/util"
 )
+
+func Test_reflect(t *testing.T) {
+	one_test.NewRefletDemo()
+}
+
+func Test_bronya(t *testing.T) {
+	util.Add(1, 2)
+}
 
 func Test_ws(t *testing.T) {
 	ws.TestWsMap()
