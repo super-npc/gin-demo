@@ -19,3 +19,15 @@ func NewRefletDemo() {
 		fmt.Printf("name: %v, type: %v, tag: %v", field.Name, field.Type, field.Tag.Get("my"))
 	}
 }
+
+func ChangeToObj() {
+	jsonStr := `{"Name":"demo11222","Age":18,"On":true}`
+	registerByStruct(&RefletDemo{})
+	obj, err := NewStructFromJSONAndName("RefletDemo", []byte(jsonStr))
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("返回对象类型：%T\n", obj)
+	fmt.Printf("返回对象值  ：%+v\n", obj)
+}

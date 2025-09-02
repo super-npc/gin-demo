@@ -11,6 +11,7 @@ import (
 
 func Test_reflect(t *testing.T) {
 	one_test.NewRefletDemo()
+	one_test.ChangeToObj()
 }
 
 func Test_bronya(t *testing.T) {
